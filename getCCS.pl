@@ -28,6 +28,8 @@ open LIST, $list or die "Cannot open list:$!\n";
 open OUT, ">", $out_file or die "Cannot output results:$!\n";
 
 while (<LIST>) {
+	# Skip blank line
+	next if /^\s*$/;
 	$_ =~ s/[\r\n]+//;
 	my ($title) = map {m%^(.+/\d+/).*%} $_;
 	say OUT ">".$title."ccs";
