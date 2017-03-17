@@ -26,7 +26,7 @@ my $kept_sam = shift; # 输出保留的SAM
 my $aban_sam = shift; # 输出干掉的SAM
 my $distance = shift; #最大编辑距离
 
-$distance = 5 unless $distance; # 默认的窗口序列与引物比对时最大编辑距离
+$distance //= 5; # 默认的窗口序列与引物比对时最大编辑距离
 unless (-s $in_sam && -s $in_ccs) {#至少需要两个参数
 	die $usage;
 }
